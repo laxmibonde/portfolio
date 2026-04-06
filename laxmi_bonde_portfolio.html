@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laxmi Bonde — Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --cream: #f5f0e8;
+        --warm-white: #fafaf7;
+        --sand: #e8e0d0;
+        --stone: #c9bba8;
+        --clay: #a0856c;
+        --earth: #7c5c47;
+        --bark: #4a3728;
+        --forest: #3d4f3c;
+        --sage: #7a8c70;
+        --rust: #8b4e3b;
+        --gold: #c4924a;
+        --text-dark: #2c1f15;
+        --text-mid: #5c4a3a;
+        --text-muted: #8c7b6a;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--warm-white);
+        color: var(--text-dark);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(250, 250, 247, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--sand);
+        padding: 0 2rem;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        color: var(--bark);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-mid);
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--earth);
+      }
+
+      /* HERO */
+      #hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 80px 6vw 0;
+        background: var(--cream);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #hero::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: var(--sand);
+        opacity: 0.5;
+        z-index: 0;
+      }
+
+      #hero::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: 30%;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: var(--stone);
+        opacity: 0.25;
+        z-index: 0;
+      }
+
+      .hero-text {
+        z-index: 1;
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .hero-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--clay);
+        background: rgba(160, 133, 108, 0.12);
+        padding: 6px 14px;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-name {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 5vw, 4.2rem);
+        font-weight: 600;
+        line-height: 1.15;
+        color: var(--bark);
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-name span {
+        color: var(--earth);
+        display: block;
+      }
+
+      .hero-desc {
+        font-size: 1rem;
+        color: var(--text-mid);
+        max-width: 480px;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: var(--bark);
+        color: var(--cream);
+        border: none;
+        padding: 12px 28px;
+        border-radius: 4px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        letter-spacing: 0.03em;
+      }
+
+      .btn-primary:hover {
+        background: var(--earth);
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--bark);
+        border: 1.5px solid var(--bark);
+        padding: 12px 28px;
+        border-radius: 4px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.2s;
+      }
+
+      .btn-outline:hover {
+        background: var(--bark);
+        color: var(--cream);
+      }
+
+      .hero-photo-wrap {
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        animation: fadeUp 0.8s 0.2s ease both;
+      }
+
+      .hero-photo-frame {
+        position: relative;
+        width: 340px;
+        height: 420px;
+      }
+
+      .hero-photo-frame::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        right: -18px;
+        bottom: -18px;
+        border: 2px solid var(--stone);
+        border-radius: 4px;
+        z-index: 0;
+      }
+
+      .hero-photo-frame img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+        filter: sepia(8%);
+      }
+
+      .hero-stats {
+        position: absolute;
+        bottom: -24px;
+        left: -24px;
+        z-index: 2;
+        background: var(--warm-white);
+        border: 1px solid var(--sand);
+        border-radius: 8px;
+        padding: 14px 20px;
+        display: flex;
+        gap: 24px;
+        box-shadow: 0 4px 24px rgba(74, 55, 40, 0.08);
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        color: var(--bark);
+        font-weight: 600;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 6rem 6vw;
+      }
+
+      section:nth-child(even) {
+        background: var(--cream);
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--clay);
+        margin-bottom: 0.5rem;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 500;
+        color: var(--bark);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .section-line {
+        width: 48px;
+        height: 2px;
+        background: var(--clay);
+        margin-bottom: 3rem;
+        border-radius: 2px;
+      }
+
+      /* ABOUT */
+      #about .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+        color: var(--text-mid);
+        line-height: 1.9;
+        margin-bottom: 1.2rem;
+      }
+
+      .about-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .highlight-card {
+        background: var(--warm-white);
+        border: 1px solid var(--sand);
+        border-radius: 8px;
+        padding: 1.2rem 1.4rem;
+        border-left: 3px solid var(--clay);
+      }
+
+      .highlight-card h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        color: var(--bark);
+        margin-bottom: 4px;
+        font-weight: 600;
+      }
+
+      .highlight-card p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* SKILLS */
+      #skills .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-category {
+        background: var(--warm-white);
+        border: 1px solid var(--sand);
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(74, 55, 40, 0.1);
+      }
+
+      .skill-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: rgba(160, 133, 108, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 16px;
+      }
+
+      .skill-category h4 {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--clay);
+        margin-bottom: 0.8rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-tag {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+        background: var(--cream);
+        border: 1px solid var(--sand);
+        border-radius: 20px;
+        color: var(--text-mid);
+        font-weight: 400;
+      }
+
+      /* PROJECTS */
+      #projects .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        background: var(--warm-white);
+        border: 1px solid var(--sand);
+        border-radius: 10px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--clay), var(--gold));
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(74, 55, 40, 0.12);
+      }
+
+      .project-card.featured {
+        border-color: var(--stone);
+        background: rgba(245, 240, 232, 0.6);
+      }
+
+      .project-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--clay);
+        margin-bottom: 0.6rem;
+      }
+
+      .project-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.25rem;
+        color: var(--bark);
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+      }
+
+      .project-desc {
+        font-size: 0.88rem;
+        color: var(--text-mid);
+        line-height: 1.75;
+        margin-bottom: 1.2rem;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 1.4rem;
+      }
+
+      .tech-badge {
+        font-size: 0.72rem;
+        padding: 3px 9px;
+        background: var(--bark);
+        color: var(--cream);
+        border-radius: 3px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+      }
+
+      .project-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .project-bullets li {
+        font-size: 0.82rem;
+        color: var(--text-mid);
+        padding-left: 1.2rem;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      .project-bullets li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--clay);
+        font-size: 0.75rem;
+        top: 2px;
+      }
+
+      /* ACHIEVEMENTS */
+      #achievements .ach-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .ach-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        background: var(--warm-white);
+        border: 1px solid var(--sand);
+        border-radius: 8px;
+        padding: 1.2rem 1.4rem;
+        transition: transform 0.2s;
+      }
+
+      .ach-item:hover {
+        transform: translateY(-2px);
+      }
+
+      .ach-dot {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        border-radius: 50%;
+        background: var(--clay);
+        margin-top: 7px;
+      }
+
+      .ach-text {
+        font-size: 0.88rem;
+        color: var(--text-mid);
+        line-height: 1.7;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--bark);
+        color: var(--cream);
+      }
+
+      #contact .section-title {
+        color: var(--cream);
+      }
+      #contact .section-label {
+        color: var(--stone);
+      }
+      #contact .section-line {
+        background: var(--stone);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .contact-intro {
+        font-size: 1rem;
+        color: var(--stone);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none;
+        color: var(--cream);
+        font-size: 0.92rem;
+        padding: 0.9rem 1.2rem;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      .contact-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .contact-link-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      .contact-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        padding: 2rem;
+      }
+
+      .contact-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        color: var(--cream);
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-card p {
+        font-size: 0.88rem;
+        color: var(--stone);
+        line-height: 1.7;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--text-dark);
+        color: var(--text-muted);
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.82rem;
+      }
+
+      footer span {
+        color: var(--stone);
+      }
+
+      /* ANIMATIONS */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        #hero {
+          grid-template-columns: 1fr;
+          padding-top: 100px;
+          text-align: center;
+        }
+        .hero-photo-wrap {
+          display: none;
+        }
+        .hero-cta {
+          justify-content: center;
+        }
+        #about .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        section {
+          padding: 4rem 5vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">Laxmi Bonde</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-text">
+        <div class="hero-tag">Computer Engineering Student</div>
+        <h1 class="hero-name">Laxmi<span>Bonde</span></h1>
+        <p class="hero-desc">
+          Full-stack developer with a passion for building AI-powered web
+          applications that solve real-world problems — from crowd management to
+          interactive design tools.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="images/photo.png" alt="Laxmi Bonde" />
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">3+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">9.36</div>
+              <div class="stat-label">CGPA</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">5+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="fade-up">
+        <p class="section-label">Who I am</p>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <p>
+            I'm a first-year Computer Engineering student at Vidyalankar
+            Institute of Technology, Mumbai, with a CGPA of 9.36. I'm driven by
+            a deep curiosity about how technology can be applied to meaningful,
+            real-world challenges.
+          </p>
+          <p>
+            My experience spans full-stack web development, AI/ML integrations,
+            and real-time systems. I build with Python, Flask, FastAPI, and the
+            MERN stack — always looking for opportunities to combine thoughtful
+            engineering with impactful outcomes.
+          </p>
+          <p>
+            Currently deepening my skills in Data Structures, Algorithms, and
+            system design, with a focus on becoming a well-rounded software
+            engineer.
+          </p>
+        </div>
+        <div class="about-highlights fade-up">
+          <div class="highlight-card">
+            <h4>Vidyalankar Institute of Technology</h4>
+            <p>
+              B.E. in Computer Engineering · 2024–2028 · CGPA 9.36<br />Mumbai,
+              India
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h4>AI & Full-Stack Focus</h4>
+            <p>
+              Building production-grade apps with Python, MERN stack, real-time
+              systems, and ML integrations
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h4>Currently Learning</h4>
+            <p>
+              Data Structures & Algorithms · System Design · Advanced API
+              architecture
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="fade-up">
+        <p class="section-label">What I work with</p>
+        <h2 class="section-title">Skills</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid fade-up">
+        <div class="skill-category">
+          <div class="skill-icon">{ }</div>
+          <h4>Languages</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon">⚙</div>
+          <h4>Frameworks & Libraries</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Redux</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">scikit-learn</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon">◈</div>
+          <h4>Databases</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">SQLite</span>
+            <span class="skill-tag">SQLAlchemy</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon">◻</div>
+          <h4>Tools & Platforms</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Render</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">WebSocket</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="fade-up">
+        <p class="section-label">What I've built</p>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid fade-up">
+        <div class="project-card featured">
+          <div class="project-label">AI/ML · Real-time · Full-stack</div>
+          <h3 class="project-title">DevDarshan — Smart Crowd Management</h3>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">WebSocket</span>
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">scikit-learn</span>
+          </div>
+          <p class="project-desc">
+            AI-powered crowd management platform for Gujarat pilgrimage sites —
+            handling real-time devotee flow monitoring across Somnath, Dwarka,
+            Ambaji, and Pavagadh.
+          </p>
+          <ul class="project-bullets">
+            <li>
+              WebSocket live feed pushing 5-second crowd density updates with 8
+              REST routers
+            </li>
+            <li>
+              ML prediction model trained on historical data to forecast visitor
+              surges
+            </li>
+            <li>
+              Multilingual pilgrim app (EN/HI/GU) with darshan slot booking &
+              virtual queues
+            </li>
+            <li>
+              Admin command-centre with role-based access (5 roles), live
+              heatmaps, IoT simulation
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-card featured">
+          <div class="project-label">
+            Full-stack · AI Suggestions · Web Tool
+          </div>
+          <h3 class="project-title">DesignVerse — Interactive Room Planner</h3>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">BeautifulSoup</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+          <p class="project-desc">
+            Browser-based room design tool with 2D drag-and-drop editing and
+            real-time 3D isometric rendering.
+          </p>
+          <ul class="project-bullets">
+            <li>
+              Amazon product scraping to auto-place furniture from any product
+              URL
+            </li>
+            <li>
+              Rule-based AI suggestion engine with personalised design tips
+            </li>
+            <li>
+              Algorithmic auto-layout with live fit-score & colour-coded space
+              utilisation
+            </li>
+            <li>
+              MongoDB persistence with room sliders, wall & floor colour pickers
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-label">MERN Stack · Charity Tech</div>
+          <h3 class="project-title">GolfGives — Golf Charity Platform</h3>
+          <div class="project-tech">
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">Express.js</span>
+            <span class="tech-badge">React.js</span>
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">Redux</span>
+          </div>
+          <p class="project-desc">
+            Full-stack MERN platform connecting golf tournaments with charitable
+            causes and enabling transparent donation tracking.
+          </p>
+          <ul class="project-bullets">
+            <li>
+              RESTful APIs for tournament management, donor profiles &
+              leaderboard scoring
+            </li>
+            <li>
+              Redux state management for real-time donation updates & dashboards
+            </li>
+            <li>
+              Aggregation pipelines for leaderboard analytics and impact reports
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-label">JavaScript · Browser Game</div>
+          <h3 class="project-title">Guess My Number & Pig Game</h3>
+          <div class="project-tech">
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+          </div>
+          <p class="project-desc">
+            Two interactive browser games demonstrating core JS logic, UI
+            design, and game state management.
+          </p>
+          <ul class="project-bullets">
+            <li>
+              Number guessing game with score tracking and dynamic feedback
+            </li>
+            <li>
+              Two-player Pig Game with dice logic, turn switching, and win
+              conditions
+            </li>
+            <li>Responsive UI with clean, user-friendly design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+      <div class="fade-up">
+        <p class="section-label">Milestones</p>
+        <h2 class="section-title">Achievements</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="ach-list fade-up">
+        <div class="ach-item">
+          <div class="ach-dot"></div>
+          <p class="ach-text">
+            Built 3 production-grade projects spanning AI/ML, full-stack web
+            development, and real-time systems using Python, MERN stack, and
+            REST/WebSocket APIs
+          </p>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot"></div>
+          <p class="ach-text">
+            Developed DevDarshan — an AI crowd management system for Gujarat
+            pilgrimage sites with ML forecasting, IoT simulation, and
+            multilingual support
+          </p>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot"></div>
+          <p class="ach-text">
+            Built DesignVerse with Amazon scraping (BeautifulSoup), rule-based
+            AI design suggestions, and an algorithmic auto-layout generator
+          </p>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot"></div>
+          <p class="ach-text">
+            Maintained a CGPA of 9.36 in Computer Engineering at Vidyalankar
+            Institute of Technology, Mumbai
+          </p>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot"></div>
+          <p class="ach-text">
+            Delivered GolfGives — a complete MERN charity platform with
+            real-time donation tracking and tournament analytics
+          </p>
+        </div>
+        <div class="ach-item">
+          <div class="ach-dot"></div>
+          <p class="ach-text">
+            Actively improving problem-solving skills in Data Structures and
+            Algorithms to build a strong foundation in computer science
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="fade-up">
+        <p class="section-label">Let's connect</p>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid fade-up">
+        <div>
+          <p class="contact-intro">
+            I'm open to internships, collaborations, and interesting projects.
+            Whether you want to build something together or just say hello — I'd
+            love to hear from you.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:suvarnabonde6@gmail.com" class="contact-link">
+              <div class="contact-link-icon">@</div>
+              <span>suvarnabonde6@gmail.com</span>
+            </a>
+            <a href="tel:+919588630397" class="contact-link">
+              <div class="contact-link-icon">#</div>
+              <span>+91 9588630397</span>
+            </a>
+            <a href="https://github.com" class="contact-link">
+              <div class="contact-link-icon">&lt;/&gt;</div>
+              <span>GitHub Profile</span>
+            </a>
+            <a href="https://linkedin.com" class="contact-link">
+              <div class="contact-link-icon">in</div>
+              <span>LinkedIn Profile</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <div class="contact-card">
+            <h3>Open to Opportunities</h3>
+            <p>
+              Internships, freelance projects, and open-source collaborations.
+              Currently based in Mumbai, available for remote work.
+            </p>
+          </div>
+          <div class="contact-card">
+            <h3>Let's Build Something</h3>
+            <p>
+              If you have a project in mind — especially in AI, full-stack, or
+              real-time systems — I'm always excited to collaborate and learn.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Designed & built by <span>Laxmi Bonde</span> · 2025 · Mumbai, India</p>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
